@@ -117,6 +117,8 @@ Category default layout
                     <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
                     <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
                     <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+                    
+                    <action method="addAttribute"><name>mg_is_new</name></action>
                 </block>
             </block>
         </reference>
@@ -168,6 +170,8 @@ Category layered navigation layout
                     <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
                     <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
                     <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+                    
+                    <action method="addAttribute"><name>mg_is_new</name></action>
                 </block>
             </block>
         </reference>

@@ -46,7 +46,7 @@ class Modulesgarden_ThemeSwifty_Model_System_Config_Source_Select extends Varien
 							foreach ($field->options->children() as $option) {
 								$options[] = array(
 									'value' => $option->value,
-									'label' => Mage::helper('adminhtml')->__($option->label),
+									'label' => $option->label,
 								);
 							}
 						}

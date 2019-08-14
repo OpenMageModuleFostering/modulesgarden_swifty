@@ -65,6 +65,13 @@
         $('.header ul.links li').find('a[title=Blog]').prepend("<i class='fa fa-book fa-lg'></i>");
         $('body.review-product-list').find('.tabNav').remove();
         
+        //whislist rwd 
+        var $wishlistTtable = $('#wishlist-table');
+
+        $wishlistTtable.find('td:nth-child(1)').addClass('width-26prer');
+        $wishlistTtable.find('td:nth-child(2)').addClass('width-74prer');
+        $wishlistTtable.find('td:nth-child(3)').addClass('width-85prer');
+            
         var $owlFeatures = $('.owl-carousel-features');
         
         $owlFeatures.owlCarousel({

@@ -2,6 +2,7 @@
 <?php $featured_products = $this->getProducts(); ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php if (($featured_products = $this->getProducts()) && $featured_products->getSize()): ?>
+    <?php $featured_products = $featured_products->getItems() ?>
 <?php shuffle($featured_products); ?>
     <div class="box recently">
         <div class="page-title catalog_title"><h2><?php echo $this->__('Featured Products') ?></h2></div>

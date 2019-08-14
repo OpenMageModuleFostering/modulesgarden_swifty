@@ -908,7 +908,7 @@ border-radius: 3px; }
 #products-list .item .f-fix p { display:block; text-align:right; }
 #products-list .item .f-fix .minimal-price { text-align:left; }
 
-.products-list li.item { padding:12px 10px; }
+.products-list li.item { padding:12px 10px; position:relative; }
 .products-list li.item.last { border-bottom:0; }
 .products-list .product-image { float:left; width:135px; height:135px; margin:0 0 10px; }
 .products-list .product-shop { margin-left:150px; }

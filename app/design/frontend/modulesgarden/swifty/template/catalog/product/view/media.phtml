@@ -34,9 +34,12 @@
     $_product = $this->getProduct();
     $_helper = $this->helper('catalog/output');
 ?>
+<?php $_new_attribute = $_product->getMgIsNew() ? '<div class="new-product">' . $this->__('NEW') . '</div>' : '' ?>
+
 <?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
 
     <p class="product-image">
+        <?php echo $_new_attribute ?>
         <?php
             $_img = '<a href="' . $this->helper('catalog/image')->init($_product, 'image') . '" class="fancybox-img" rel="product-gallery"><img id="image" src="'.$this->helper('catalog/image')->init($_product, 'image') ->resize(405).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" /></a>';
             echo $_helper->productAttribute($_product, $_img, 'image');
@@ -45,6 +48,7 @@
 
 <?php else: ?>
     <p class="product-image">
+        <?php echo $_new_attribute ?>
         <?php
             $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(405).'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
             echo $_helper->productAttribute($_product, $_img, 'image');

@@ -1,6 +1,6 @@
 <?php 
-if (Mage::helper('core')->isModuleEnabled('Modulesgarden_SPSSliders')){
-    $slider = Mage::getModel('storepluginsetsliders/slider')->loadByCode('swifty_slider_full');
+if (Mage::helper('core')->isModuleEnabled('Modulesgarden_Base')){
+    $slider = Mage::getModel('modulesgarden_base/slider')->loadByCode('swifty_slider_full');
     if ((!$slider->isEmpty() && $slider->getEnabled() && $slider->isEnabledForCurrentStoreView())){ 
     
     $style = Mage::getStoreConfig('mgthemeswifty/main/colorscheme');

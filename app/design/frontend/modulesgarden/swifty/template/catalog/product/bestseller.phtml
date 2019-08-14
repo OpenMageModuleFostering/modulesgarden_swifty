@@ -1,0 +1,52 @@
+<div id="bestseller-container">
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+    <div class="home-page-cntr">
+    <div class="page-title catalog_title"><h2><?php echo $this->__('Bestsellers') ?></h2></div>
+    <div class="customNavigation">
+        <a class="btn prev2"></a>
+        <a class="btn next2"></a>
+    </div>
+        <div id="owl-bestseller" class="owl-carousel-bestsellers owl-carousel products-grid">
+            <?php $i=0; foreach ($_products->getItems() as $_product): ?>
+                <?php if ($i>5): continue; endif; ?>
+                    <div class="home-page-item item first">
+                        <div class="home-page-img">
+                            <div class="product_img_container">
+                                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                                     <?php if($_product->getMgIsNew()) { ?>
+                                        <div class="new-product"><?php echo $this->__('NEW') ?></div>
+                                    <?php } ?>
+                                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(277); ?>" width="277" height="277" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                                <a href="<?php echo $_product->getProductUrl() ?>" class="hover view-more"><?php echo $this->__('View product') ?></a>
+                            </div>
+                            <?php //echo $_product->getShortDescription(); //also getShortDescription ?>
+                        </div>
+                        <div class="gird_prod_desc">
+                            <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+
+                            <?php echo $this->getPriceHtml($_product, true) ?>
+                            <div class="actions">
+                                <?php if($_product->isSaleable()): ?>
+                                <a class="btn-cart hover" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php echo $this->__('Add to Cart') ?></span></a>
+                                <?php else: ?>
+                                    <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                <?php endif; ?>
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                        <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="wishlist-icon hover"></a>
+                                <?php endif; ?>
+                                <ul class="add-to-links">
+                                    <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                        <li><a href="<?php echo $_compareUrl ?>" class="compare-icon hover"></a></li>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <?php $i++; endforeach; ?>
+                    <?php for($i;$i%5!=0;$i++): ?>
+                        <?php endfor ?>
+        </div>
+    </div>
+<?php endif; ?>
+</div>

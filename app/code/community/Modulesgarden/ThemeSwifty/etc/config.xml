@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Modulesgarden_ThemeSwifty>
+			<version>1.0.0</version>
+		</Modulesgarden_ThemeSwifty>
+	</modules>
+
+	<global>
+		<models>
+			<mgthemeswifty>
+				<class>Modulesgarden_ThemeSwifty_Model</class>
+				<resourceModel>mgthemeswifty_resource</resourceModel>
+			</mgthemeswifty>
+			<mgthemeswifty_resource>
+				<class>Modulesgarden_ThemeSwifty_Model_Resource</class>
+			</mgthemeswifty_resource>
+		</models>
+                <blocks>
+			<mgthemeswifty>
+				<class>Modulesgarden_ThemeSwifty_Block</class>
+			</mgthemeswifty>
+		</blocks>
+		<helpers>
+			<mgthemeswifty>
+				<class>Modulesgarden_ThemeSwifty_Helper</class>
+			</mgthemeswifty>
+		</helpers>
+		<resources>
+			<mgthemeswifty_setup>
+				<setup>
+					<module>Modulesgarden_ThemeSwifty</module>
+					<class>Mage_Sales_Model_Mysql4_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</mgthemeswifty_setup>
+			<mgthemeswifty_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</mgthemeswifty_write>
+			<mgthemeswifty_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</mgthemeswifty_read>
+		</resources>
+	</global>
+
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<mgthemeswifty> <!-- the same as <sections> child name -->
+											<title>Modulesgarden Theme Swifty</title>
+										</mgthemeswifty>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+
+	<default>
+		<mgthemeswifty>
+			<main>
+				<colorscheme>red</colorscheme>
+                                <fontfamily>opensans</fontfamily>
+                                <colorfooter>lightgray</colorfooter>
+                                <breadcrumbs>yes</breadcrumbs>
+                                <showhome>no</showhome>
+                                <slider>full</slider>
+			</main>
+		</mgthemeswifty>
+	</default>
+</config>

@@ -1,0 +1,105 @@
+<?php 
+if (Mage::helper('core')->isModuleEnabled('Modulesgarden_SPSSliders')){
+    $slider = Mage::getModel('storepluginsetsliders/slider')->loadByCode('swifty_slider_full');
+    if ((!$slider->isEmpty() && $slider->getEnabled() && $slider->isEnabledForCurrentStoreView())){ 
+    
+    $style = Mage::getStoreConfig('mgthemeswifty/main/colorscheme');
+    if ( $style == 'blue'){
+        $color = 'blue';
+        $fontColor = '#1ea3da';
+    }elseif ($style == 'green') {
+        $color = 'green';
+        $fontColor = '#43bf8a';
+    }else {
+        $color = 'red';
+        $fontColor = '#f83e3e';
+    } 
+?>
+
+
+<?php $sliderStyle = Mage::getStoreConfig('mgthemeswifty/main/slider');
+    if ( $sliderStyle == 'wrapped') { ?>
+        <?php if (!$slider->isEmpty() && $slider->getEnabledBanners()->getSize() > 0 && $slider->isEnabledForCurrentStoreView()) { ?>
+            <div id="slider-wrapper">
+                <div id="layerslider" style="width:100%;height:460px;">
+                    <?php foreach ($slider->getEnabledBanners() as $banner){ ?>
+                        <div class="ls-slide" data-ls="transition2d:1;">
+                            <img src="<?php echo $this->getSkinUrl('images/sliderimages/'.$color.'-bg.jpg'); ?>" class="ls-bg" alt="Slide background"/>
+                            <img class="ls-l" style="top:0;right:1000px;white-space: nowrap;" data-ls="offsetxin:1000; durationin:4000; easingin:linear;" src="<?php echo $this->getSkinUrl('images/sliderimages/'.$color.'-bg2.jpg'); ?>" alt="">
+                            <img class="ls-l" style="top:0;left:65%;white-space: nowrap;" data-ls="offsetxin:400;durationin:2000;offsetxout:400;" src="<?php echo $banner->getFileUrl(); ?>" alt="">
+                            <p class="ls-l" style="max-width:500px;top:150px;left:30px;font-weight:300;height:40px;padding-right:10px;padding-left:10px;font-size:30px;line-height:37px;color:#ffffff;background:<?php echo $fontColor; ?>;border-radius:3px;" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;">
+                                <?php echo $banner->getTitle(); ?>
+                            </p>
+                            <p class="ls-l" style="max-width:500px;top:200px;left:35px;font-family: 'Architects Daughter', cursive;font-size:26px;color:<?php echo $fontColor; ?>;text-align:left;line-height:26px;" data-ls="offsetxin:0;durationin:2000;delayin:2000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% top 0;offsetxout:-400;">
+                                <?php $descSlide = $banner->getDescription();
+                                    if (strlen($descSlide) > 80){
+                                        $descSlide = substr($descSlide,0,80); 
+                                        $descSlideWrap = $descSlide."...";
+                                    }
+                                    else {
+                                        $descSlideWrap = $descSlide;
+                                    }
+                                echo $descSlideWrap; ?>
+                            </p>
+                            <?php 
+                                echo '<a class="ls-l slide-link" href="'.$banner->getUrl().'"></a>'; 
+                                if ($banner->getUrlTitle()){
+                                    echo '<a class="ls-l link slide-btn" style="left:30px; top:73%;" data-ls="offsetxin: top; delayin:500;" href="'.$banner->getUrl().'">'.$banner->getUrlTitle().'</a>';
+                                }
+                            ?>
+
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } ?>
+        <br class="clear"/>
+    <?php }else { ?>
+        <?php if (!$slider->isEmpty() && $slider->getEnabledBanners()->getSize() > 0 && $slider->isEnabledForCurrentStoreView()) { ?>
+            <div id="full-slider-wrapper">
+                <div id="layerslider" style="width:100%;height:460px;">
+                    <?php foreach ($slider->getEnabledBanners() as $banner){ ?>
+                        <div class="ls-slide" data-ls="transition2d:1;">
+                            <img src="<?php echo $this->getSkinUrl('images/sliderimages/'.$color.'-bg.jpg'); ?>" class="ls-bg" alt="Slide background"/>
+                            <img class="ls-l" style="top:0;right:1000px;white-space: nowrap;" data-ls="offsetxin:1000; durationin:4000; easingin:linear;parallaxlevel:1;" src="<?php echo $this->getSkinUrl('images/sliderimages/'.$color.'-bg2.jpg'); ?>" alt="">
+                            <div class="wrapp-slider-full">
+                                <img class="ls-l" style="top:0;left:60%;white-space: nowrap;" data-ls="offsetxin:400;durationin:2000;offsetxout:400;" src="<?php echo $banner->getFileUrl(); ?>" alt="">
+                                <p class="ls-l" style="max-width:900px;top:80px;left:35px;font-weight:300;height:40px;text-align:left;padding-right:10px;padding-left:10px;font-size:30px;line-height:37px;color:#ffffff;background:<?php echo $fontColor; ?>;border-radius:3px;text-transform:uppercase;" data-ls="offsetxin:0;durationin:2000;delayin:1500;easingin:easeOutElastic;rotatexin:-90;transformoriginin:50% top 0;offsetxout:-200;durationout:1000;parallaxlevel:2;">
+                                    <?php $titleSlide = $banner->getTitle();
+                                        if (strlen($titleSlide) > 50){
+                                            $titleSlide = substr($titleSlide,0,50); 
+                                            $titleSlideWrap = $titleSlide."...";
+                                        }
+                                        else {
+                                            $titleSlideWrap = $titleSlide;
+                                        }
+                                    echo $titleSlideWrap; ?>
+                                </p>
+                                <p class="ls-l" style="max-width:500px;top:130px;left:35px;font-family: 'Architects Daughter', cursive;font-size:26px;color:<?php echo $fontColor; ?>;text-align:left;line-height:26px;" data-ls="offsetxin:0;durationin:2000;delayin:2000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% top 0;offsetxout:-400;parallaxlevel:3;">
+                                    <?php $descSlide = $banner->getDescription();
+                                        if (strlen($descSlide) > 180){
+                                            $descSlide = substr($descSlide,0,180); 
+                                            $descSlideWrap = $descSlide."...";
+                                        }
+                                        else {
+                                            $descSlideWrap = $descSlide;
+                                        }
+                                    echo $descSlideWrap; ?>
+                                </p>
+                                <?php 
+                                    echo '<a class="ls-l slide-link" href="'.$banner->getUrl().'"></a>'; 
+                                    if ($banner->getUrlTitle()){
+                                        echo '<a class="ls-l link slide-btn" style="left:35px; top:73%;" data-ls="offsetxin: top; delayin:500;parallaxlevel:3;" href="'.$banner->getUrl().'">'.$banner->getUrlTitle().'</a>';
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } ?>
+    <?php } ?>
+
+<?php }
+}
+?>

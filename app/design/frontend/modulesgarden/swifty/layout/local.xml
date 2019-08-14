@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    
+<cms_index_index>
+    <reference name="left">
+        <remove name="left.newsletter" />
+        <remove name="tags_popular" />
+    </reference>
+    
+    <reference name="right">
+        <remove name="catalog.compare.sidebar"/>
+        <remove name="cart_sidebar"/>
+        <remove name="right.reports.product.viewed" />
+        <remove name="wishlist_sidebar"/>
+        <remove name="sale.reorder.sidebar"/>
+    </reference>
+    
+    <reference name="content">
+        <remove name="home.catalog.product.new"/>
+        <remove name="home.reports.product.viewed"/>
+        <remove name="home.reports.product.compared"/>
+        <remove name="tags_popular" />
+    </reference>
+    <reference name="newreference">
+	<block type="mgthemeswifty/product_bestseller" name="bestseller" template="catalog/product/bestseller.phtml" />
+        <block type="mgthemeswifty/product_featured" name="featured" template="catalog/product/featured.phtml" />
+    </reference>
+  
+    <reference name="baners">
+        <block type="core/template" name="newBanersBlock" template="page/baners.phtml" />
+    </reference>
+</cms_index_index>
+    
+<default>
+    
+    <reference name="wishlist_link">
+        <action method="setAParams"><params>class="icon-wishlist"</params></action>
+    </reference>
+    
+    <reference name="root">
+        <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+    </reference>
+
+    <reference name="right">
+            <remove name="paypal.partner.right.logo" /> 
+    </reference>
+    
+    <reference name="brands">
+        <block type="core/template" name="brandsBlock" template="page/brands.phtml" />
+    </reference>
+    
+</default>
+
+
+<catalog_category_default translate="label">
+     <reference name="root">
+         <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+     </reference>
+</catalog_category_default>
+
+<catalogsearch_result_index>
+     <reference name="root">
+        <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+     </reference>
+ </catalogsearch_result_index>
+ 
+ 
+</layout>

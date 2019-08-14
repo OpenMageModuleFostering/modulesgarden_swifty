@@ -1,0 +1,19 @@
+/* ============ STYLES FOR FOOTER THEME - LIGHTGRAY =============== */
+
+.footer-container { background:#000; }
+.footer .store-switcher { display:inline; margin:0 5px 0 0; color:#fff; }
+.footer a { color:#ececec; text-decoration:none; }
+.footer a:hover { text-decoration:underline; }
+.footer .bugs { margin:13px 0 0; color:#ececec; }
+.footer .bugs a { color:#ececec; text-decoration:underline; }
+.footer .bugs a:hover { text-decoration:none; }
+.footer address { margin:0 0 20px; color:#ececec; }
+.footer address a { color:#ececec; text-decoration:underline; }
+.footer address a:hover { text-decoration:none; }
+.footer .col2 h2, .footer .col3 h2, .footer .col4 span { color:#fff !important; }
+.footer-container .col1 { background:#171717 !important; border:1px solid #27292a !important; }
+.col-footer h2 { border-bottom: 1px solid #27292a !important; }
+.col-footer .block-title { border-bottom: 1px solid #27292a !important; }
+.footer .col1 h2 { border:none !important; color:#fff; }
+.footer .col1 ul li { color:#ececec; }
+.block-subscribe label { color:#ececec !important; }

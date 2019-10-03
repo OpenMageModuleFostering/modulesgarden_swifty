@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/ModulesGarden_Swifty",
+    "name": "openmage-module-fostering\/modulesgarden_swifty",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "ModulesGarden Swifty - Theme For Magento Is A Responsive Skin With Fresh Graphic Design And A Transparent Slider.",
     "authors": [
